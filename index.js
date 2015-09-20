@@ -75,6 +75,43 @@ module.exports = postcss.plugin('postcss-instagram', function () {
           decl.remove();
         };
 
+        // Filter: Amaro
+        var filter1977 = function(decl) {
+          var origRule = decl.parent,
+            ruleSelectors = origRule.selectors,
+            afterRuleSelectors,
+            imgRuleSelectors,
+            afterRule,
+            a1977Rule;
+
+            afterRuleSelectors = ruleSelectors.map(function(ruleSelector){
+                  return ruleSelector + ':after';
+            }).join(',\n');
+
+            imgRuleSelectors = ruleSelectors.map(function(ruleSelector){
+                  return ruleSelector + ' img';
+            }).join(',\n');
+
+
+          afterRule = origRule.cloneBefore({
+            selector: afterRuleSelectors
+          }).removeAll();
+
+          a1977Rule = origRule.cloneBefore({
+            selector: imgRuleSelectors
+          }).removeAll();
+
+          afterRule.append('box-shadow:inset 0 0 3em #222;position:absolute;top:0;right:0;bottom:2px;left:0;z-index:1;content:\'\'');
+
+          origRule.append('position:relative;display:inline-block');
+
+
+          a1977Rule.append('-webkit-filter:sepia(0.5) hue-rotate(-35deg) saturate(1.6) contrast(0.9); filter:url(\'data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.6965 0.3845 0.0945 0 0 0.1745 0.8430000000000001 0.084 0 0 0.136 0.267 0.5655 0 0 0 0 0 1 0" /><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="1.4722000000000002 -0.42899999999999994 -0.0432 0 0 -0.1278 1.1869999999999998 -0.0432 0 0 -0.1278 -0.42899999999999994 1.5568000000000002 0 0 0 0 0 1 0" /><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.9" intercept="0.04999999999999999" /><feFuncG type="linear" slope="0.9" intercept="0.04999999999999999" /><feFuncB type="linear" slope="0.9" intercept="0.04999999999999999" /></feComponentTransfer></filter></svg>#filter\'); -webkit-filter:sepia(0.5) hue-rotate(-35deg) saturate(1.6) contrast(0.9); filter:sepia(0.5) hue-rotate(-35deg) saturate(1.6) contrast(0.9);');
+
+            decl.remove();
+          };
+
+
       css.walkDecls('filter', function(decl) {
         switch (decl.value) {
           case 'kalvin':
@@ -82,6 +119,9 @@ module.exports = postcss.plugin('postcss-instagram', function () {
             break;
           case 'amaro':
             filterAmaro(decl);
+            break;
+          case '1977':
+            filter1977(decl);
             break;
         }
       });
