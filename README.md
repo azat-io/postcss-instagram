@@ -75,3 +75,8 @@ Azat S.
 ## License
 
 MIT
+
+[ci]:      https://travis-ci.org/azat-io/postcss-instagram
+[deps]:    https://gemnasium.com/azat-io/postcss-instagram
+[npm]:     http://badge.fury.io/js/postcss-instagram
+[postcss]: https://github.com/postcss/postcss
