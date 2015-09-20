@@ -1,6 +1,6 @@
 {
   "name": "postcss-instagram",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "PostCSS plugin for working with photos",
   "main": "index.js",
   "scripts": {
