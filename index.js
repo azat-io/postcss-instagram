@@ -300,7 +300,7 @@ module.exports = postcss.plugin('postcss-instagram', function () {
         selector: imgRuleSelectors
       }).removeAll();
 
-      afterRule.append('box-shadow:inset 0 0 100em #00f;opacity:0.6;position:absolute;top:0;right:0;bottom:2px;left:0;z-index:1;content:\'\'');
+      afterRule.append('box-shadow:inset 0 0 100em #00f;opacity:0.5;position:absolute;top:0;right:0;bottom:2px;left:0;z-index:1;content:\'\'');
 
       origRule.append('position:relative;display:inline-block');
 
