@@ -54,6 +54,23 @@ npm install postcss-instagram --save
 }
 ```
 
+### Filters
+
+Here is a full list of plugin filters:
+* 1977
+* amaro
+* brannan
+* earlybird
+* inkwell
+* kalvin
+* lo-fi
+* nashville
+* toaster
+
+You can look filter examples [here](https://github.com/azat-io/postcss-instagram/blob/master/LIST.md).
+
+https://github.com/azat-io/postcss-instagram/blob/master/LIST.md
+
 ## Contributing
 
 Pull requests are welcome.
