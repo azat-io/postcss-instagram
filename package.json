@@ -1,6 +1,6 @@
 {
   "name": "postcss-instagram",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "PostCSS plugin for working with photos",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,6 @@
   },
   "repository": "azat-io/postcss-instagram",
   "dependencies": {
-    "postcss": "^4.1.11"
+    "postcss": "^5.0.5"
   }
 }
