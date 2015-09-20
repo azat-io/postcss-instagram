@@ -181,6 +181,42 @@ module.exports = postcss.plugin('postcss-instagram', function () {
               decl.remove();
             };
 
+            // Filter: Toaster
+            var filterToaster = function(decl) {
+              var origRule = decl.parent,
+                ruleSelectors = origRule.selectors,
+                afterRuleSelectors,
+                imgRuleSelectors,
+                afterRule,
+                toasterRule;
+
+                afterRuleSelectors = ruleSelectors.map(function(ruleSelector){
+                      return ruleSelector + ':after';
+                }).join(',\n');
+
+                imgRuleSelectors = ruleSelectors.map(function(ruleSelector){
+                      return ruleSelector + ' img';
+                }).join(',\n');
+
+
+              afterRule = origRule.cloneBefore({
+                selector: afterRuleSelectors
+              }).removeAll();
+
+              toasterRule = origRule.cloneBefore({
+                selector: imgRuleSelectors
+              }).removeAll();
+
+              afterRule.append('box-shadow:inset 0 0 3em #222;position:absolute;top:0;right:0;bottom:2px;left:0;z-index:1;content:\'\'');
+
+              origRule.append('position:relative;display:inline-block');
+
+              toasterRule.append('-webkit-filter:sepia(0.4) saturate(2.5) hue-rotate(-30deg) contrast(0.67); -filter:sepia(0.4) saturate(2.5) hue-rotate(-30deg) contrast(0.67);');
+
+                decl.remove();
+              };
+
+
       css.walkDecls('filter', function(decl) {
         switch (decl.value) {
           case 'kalvin':
@@ -197,6 +233,9 @@ module.exports = postcss.plugin('postcss-instagram', function () {
             break;
           case 'earlybird':
             filterEarlybird(decl);
+            break;
+          case 'toaster':
+            filterToaster(decl);
             break;
         }
       });
