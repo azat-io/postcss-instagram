@@ -239,6 +239,41 @@ module.exports = postcss.plugin('postcss-instagram', function () {
         decl.remove();
         };
 
+    // Filter: Lo-Fi
+    var filterLoFi = function(decl) {
+      var origRule = decl.parent,
+        ruleSelectors = origRule.selectors,
+        afterRuleSelectors,
+        imgRuleSelectors,
+        afterRule,
+        lofiRule;
+
+        afterRuleSelectors = ruleSelectors.map(function(ruleSelector){
+              return ruleSelector + ':after';
+        }).join(',\n');
+
+        imgRuleSelectors = ruleSelectors.map(function(ruleSelector){
+              return ruleSelector + ' img';
+        }).join(',\n');
+
+
+      afterRule = origRule.cloneBefore({
+        selector: afterRuleSelectors
+      }).removeAll();
+
+      lofiRule = origRule.cloneBefore({
+        selector: imgRuleSelectors
+      }).removeAll();
+
+      afterRule.append('box-shadow:inset 0 0 7em #000;position:absolute;top:0;right:0;bottom:2px;left:0;z-index:1;content:\'\'');
+
+      origRule.append('position:relative;display:inline-block');
+
+      lofiRule.append('filter:url(\'data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="1.5" intercept="-0.25" /><feFuncG type="linear" slope="1.5" intercept="-0.25" /><feFuncB type="linear" slope="1.5" intercept="-0.25" /></feComponentTransfer><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.9" /><feFuncG type="linear" slope="0.9" /><feFuncB type="linear" slope="0.9" /></feComponentTransfer><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.96965 0.038449999999999984 0.009450000000000014 0 0 0.01745000000000002 0.9843000000000001 0.008400000000000019 0 0 0.013600000000000001 0.026700000000000057 0.95655 0 0 0 0 0 1 0" /></filter></svg>#filter\'); filter:contrast(1.5) brightness(0.9) sepia(0.05); -webkit-filter:contrast(1.5) brightness(0.9) sepia(0.05);');
+
+        decl.remove();
+      };
+
       css.walkDecls('filter', function(decl) {
         switch (decl.value) {
           case 'kalvin':
@@ -261,6 +296,9 @@ module.exports = postcss.plugin('postcss-instagram', function () {
             break;
           case 'inkwell':
             filterInkwell(decl);
+            break;
+          case 'lo-fi':
+            filterLoFi(decl);
             break;
         }
       });
