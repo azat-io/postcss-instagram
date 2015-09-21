@@ -1,5 +1,7 @@
 # postcss-instagram
 
+<img align="right" width="150" height="150" src="https://github.com/azat-io/postcss-instagram/blob/master/images/postcss.jpg?raw=true" alt="">
+
 [![Build Status](https://travis-ci.org/azat-io/postcss-instagram.svg?branch=master)][ci] [![NPM version](https://badge.fury.io/js/postcss-instagram.svg)][npm] [![Dependency Status](https://gemnasium.com/azat-io/postcss-instagram.svg)][deps]
 
 This is a PostCSS plugin for adding Instagram filters to your photos.
