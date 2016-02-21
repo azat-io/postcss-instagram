@@ -1,19 +1,10 @@
 {
   "name": "postcss-instagram",
   "version": "1.0.0",
-  "description": "PostCSS plugin for working with photos",
+  "description": "PostCSS plugin for adding CSS Instagram filters to your images",
   "main": "index.js",
   "scripts": {
     "test": "ava test.js"
-  },
-  "keywords": [
-    "css",
-    "postcss",
-    "postcss-plugin"
-  ],
-  "license": "MIT",
-  "devDependencies": {
-    "ava": "^0.11.0"
   },
   "homepage": "https://github.com/azat-io/postcss-instagram",
   "author": {
@@ -21,8 +12,17 @@
     "email": "to@azat.io",
     "url": "https://github.com/azat-io/postcss-instagram"
   },
-  "repository": "azat-io/postcss-instagram",
+  "keywords": [
+    "css",
+    "postcss",
+    "postcss-plugin"
+  ],
+  "devDependencies": {
+    "ava": "^0.12.0"
+  },
   "dependencies": {
-    "postcss": "^5.0.16"
-  }
+    "postcss": "^5.0.16",
+    "pleeease-filters": "^2.0.0"
+  },
+  "license": "MIT"
 }
