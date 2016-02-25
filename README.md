@@ -1,6 +1,7 @@
 # postcss-instagram
 
-<img align="right" width="130" height="130" src="https://github.com/azat-io/postcss-instagram/blob/master/images/postcss.png?raw=true" alt="">
+
+<img align="right" width="130" height="130" title="PostCSS" src="http://postcss.github.io/postcss/logo.svg">
 
 [![Build Status](https://travis-ci.org/azat-io/postcss-instagram.svg?branch=master)][ci] [![NPM version](https://badge.fury.io/js/postcss-instagram.svg)][npm] [![Dependency Status](https://gemnasium.com/azat-io/postcss-instagram.svg)][deps]
 
