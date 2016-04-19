@@ -18,10 +18,10 @@
     "postcss-plugin"
   ],
   "devDependencies": {
-    "ava": "0.13.0"
+    "ava": "0.14.0"
   },
   "dependencies": {
-    "postcss": "5.0.16",
+    "postcss": "5.0.19",
     "pleeease-filters": "3.0.0"
   },
   "license": "MIT"
