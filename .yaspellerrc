@@ -1,0 +1,17 @@
+{
+    "lang": "en",
+    "excludeFiles": [
+        "node_modules"
+    ],
+    "fileExtensions": [
+        ".md",
+        ".js"
+    ],
+    "ignoreCapitalization": true,
+    "ignoreUrls": true,
+    "dictionary": [
+        "instagram",
+        "PostCSS",
+        "postcss"
+    ]
+}

@@ -1,0 +1,14 @@
+# Node.js / NPM
+node_modules
+npm-debug.log
+
+# Yarn
+yarn-error.log
+
+# Code Coverage
+coverage
+
+# Editor
+
+[._]sw[a-p]
+*~
